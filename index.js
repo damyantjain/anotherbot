@@ -15,7 +15,7 @@ app.get('/', function(req, res){
     res.send("hiiiiiiii")
 })
 
-token = "EAAck6HVMCxYBAARL5kTT62fxPHUgMUTZAgessatN86qiaWodTTIyejb5gGR02dxKPLuCEhmza02XZCrZAyUzTjuR0kDZAYNIEmbZAOtgmIU3pWu3B7aXZB9wgY1r1AYSGZBIcK6LTZAd0f9wOZCRpjE88E8sDUUNo0ZCpDZAoRc5fjSFgZDZD"
+let token = "EAAck6HVMCxYBAARL5kTT62fxPHUgMUTZAgessatN86qiaWodTTIyejb5gGR02dxKPLuCEhmza02XZCrZAyUzTjuR0kDZAYNIEmbZAOtgmIU3pWu3B7aXZB9wgY1r1AYSGZBIcK6LTZAd0f9wOZCRpjE88E8sDUUNo0ZCpDZAoRc5fjSFgZDZD"
 
 app.get('/webhook/', function(req, res){
     if (req.query['hub.verify_token']== "damyantjain"){
@@ -25,7 +25,7 @@ app.get('/webhook/', function(req, res){
 })
 
 app.post('/webhook/',function(req, res){
-    let messaging_events = req.body.entry[0].messaging_events
+    let messaging_events = req.body.entry[0].messaging
     for (let i =0; i < messaging_events.length; i++){
         let event = messaging_events[i]
         let sender = event.sender.id
@@ -40,10 +40,10 @@ functionsendText(sender, text) {
     let messageData = {text: text}
     request({
         url:"https://graph.facebook.com/v2.6/me/messages",
-        qs : {access_token, token},
+        qs : {access_token : token},
         method: "POST",
         json: {
-            receipt: {id: sender},
+            recipient: {id: sender},
             message : messageData
         }
     }, function(error, response, body) {
