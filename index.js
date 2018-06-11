@@ -33,7 +33,7 @@ app.post('/webhook/',function(req, res){
             let text = event.message.text
 
             if(text.includes("Happy")){
-                sendText(sender, "Text echo: " + text.substring(0,100))
+                sendText(sender, "Are you really " + text.substring(0,100) + "?")
             }
             else{
             sendText(sender, "Text echo: " + text.substring(0,100))
