@@ -1,0 +1,24 @@
+{
+  "name": "anotherbot",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "index.js",
+  "scripts": {
+    "test": "op"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damyantjain/superbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damyantjain/superbot/issues"
+  },
+  "homepage": "https://github.com/damyantjain/superbot#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "request": "^2.87.0"
+  }
+}
