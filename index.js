@@ -114,6 +114,11 @@ function sendButtonMessage(sender, text){
                 },
                 {
                     "type":"postback",
+                    "title":"Rainy",
+                    "payload":"rainy"
+                },
+                {
+                    "type":"postback",
                     "title":"Fall",
                     "payload":"fall"
                 },
