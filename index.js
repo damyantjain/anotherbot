@@ -114,25 +114,36 @@ function sendImageMessage(sender){
 function sendGenericMessage(sender){
     let messageData = {
         "attachment":{
-        "type":"template",
-        "payload":{
-          "template_type":"generic",
-          "elements":[
-             {
-              "title":"I love Winter",
-              "image_url":"https://www.divahair.ro/images/speciale/articole/articole_imagini/andreea.gluh_125/04.12.2014/herastrau_.jpg",
-              "subtitle":"Winter is awesome",
-              "buttons":[
-                {
-                  "type":"web_url",
-                  "url":"https://en.wikipedia.org/wiki/Winter",
-                  "title":"More about Winter"
-                }              
-              ]      
+            "type":"template",
+            "payload":{
+              "template_type":"generic",
+              "elements":[
+                 {
+                  "title":"Welcome!",
+                  "image_url":"https://petersfancybrownhats.com/company_image.png",
+                  "subtitle":"We have the right hat for everyone.",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "https://petersfancybrownhats.com/view?item=103",
+                    "messenger_extensions": false,
+                    "webview_height_ratio": "tall",
+                    "fallback_url": "https://petersfancybrownhats.com/"
+                  },
+                  "buttons":[
+                    {
+                      "type":"web_url",
+                      "url":"https://petersfancybrownhats.com",
+                      "title":"View Website"
+                    },{
+                      "type":"postback",
+                      "title":"Start Chatting",
+                      "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                    }              
+                  ]      
+                }
+              ]
             }
-          ]
-        }
-      }
+          }
     }
     sendRequest(sender, MessageData)
 }
