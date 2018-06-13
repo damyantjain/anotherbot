@@ -155,7 +155,7 @@ function sendImageMessage(sender){
 }
 
 function sendGenericMessage(sender){
-     let messageData = {
+    let messageData = {
         "attachment":{
             "type":"template",
             "payload":{
