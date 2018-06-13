@@ -117,11 +117,11 @@ function sendButtonMessage(sender, text){
                     "title":"Fall",
                     "payload":"fall"
                 },
-                {
+               /* {
                     "type":"postback",
                     "title":"Rainy",
                     "payload":"rainy"
-                }
+                }*/
               ]
             }
           }
