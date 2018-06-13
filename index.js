@@ -112,16 +112,16 @@ function sendButtonMessage(sender, text){
                     "title":"Winter",
                     "payload":"winter"
                 },
-                {
-                    "type":"postback",
-                    "title":"Rainy",
-                    "payload":"rainy"
-                },
-               /* {
+             /*   {
                     "type":"postback",
                     "title":"Fall",
                     "payload":"fall"
                 },*/
+                {
+                    "type":"postback",
+                    "title":"Rainy",
+                    "payload":"rainy"
+                }
               ]
             }
           }
@@ -192,32 +192,46 @@ function sendListMessage(sender){
                 {
                   "title": "Classic T-Shirt Collection",
                   "subtitle": "See all our colors",
-                  "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",          
+                  "image_url": "http://images6.fanpop.com/image/photos/36200000/snow-image-snow-36241624-500-375.png",          
                   "buttons": [
                     {
                       "title": "View",
                       "type": "web_url",
-                      "url": "https://peterssendreceiveapp.ngrok.io/collection",
+                      "url": "https://google.com",
                       "messenger_extensions": true,
-                      "webview_height_ratio": "tall",
+                      "webview_height_ratio": "tall",            
                     }
                   ]
                 },
                 {
                   "title": "Classic White T-Shirt",
                   "subtitle": "See all our colors",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "https://google.com",
+                    "messenger_extensions": true,
+                    "webview_height_ratio": "tall"
+                  }
                 },
                 {
                   "title": "Classic Blue T-Shirt",
-                  "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+                  "image_url": "http://images6.fanpop.com/image/photos/36200000/snow-image-snow-36241624-500-375.png",
                   "subtitle": "100% Cotton, 200% Comfortable",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "https://google.com",
+                    "messenger_extensions": true,
+                    "webview_height_ratio": "tall",
+              
+                  },
                   "buttons": [
                     {
                       "title": "Shop Now",
                       "type": "web_url",
-                      "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+                      "url": "https://google.com",
                       "messenger_extensions": true,
                       "webview_height_ratio": "tall",
+                                  
                     }
                   ]        
                 }
@@ -226,7 +240,7 @@ function sendListMessage(sender){
                 {
                   "title": "View More",
                   "type": "postback",
-                  "payload": "payload"            
+                  "payload": "hey"            
                 }
               ]  
             }
