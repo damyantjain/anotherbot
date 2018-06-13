@@ -117,11 +117,11 @@ function sendButtonMessage(sender, text){
                     "title":"Rainy",
                     "payload":"rainy"
                 },
-                {
+               /* {
                     "type":"postback",
                     "title":"Fall",
                     "payload":"fall"
-                },
+                },*/
               ]
             }
           }
@@ -180,7 +180,7 @@ function sendGenericMessage(sender){
     }
     sendRequest(sender, messageData)
 }
-/*
+
 function sendListMessage(sender){
     let messageData = {
         "attachment": {
@@ -249,7 +249,7 @@ function sendListMessage(sender){
     }
     sendRequest(sender, messageData)
 }
-*/
+
 function sendVideoMessage(sender){
     let messageData = {
         "attachment": {
