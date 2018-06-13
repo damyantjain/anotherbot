@@ -164,25 +164,25 @@ function sendGenericMessage(sender){
                  {
                   "title":"Welcome!",
                   "image_url":"http://images6.fanpop.com/image/photos/36200000/snow-image-snow-36241624-500-375.png",
-                  "subtitle":"Wintetr is love.",
-                  "default_action": {
+                  "subtitle":"Winter is love.",
+                /*  "default_action": {
                     "type": "web_url",
                     "url": "http://www.fanpop.com/clubs/snow/images/36241624/title/snow-winter-photo",
                     "messenger_extensions": true,
                     "webview_height_ratio": "tall",
-                  },
-                 /* "buttons":[
+                  },*/
+                  "buttons":[
                     {
                       "type":"web_url",
                       "url":"https://google.com",
                       "title":"View Website"
                     },
-                    {
+                 /*   {
                       "type":"postback",
                       "title":"Start Chatting",
                       "payload":"hey"
-                    }              
-              ]      */
+                    }  */            
+                 ]      
                 }
               ]
             }
