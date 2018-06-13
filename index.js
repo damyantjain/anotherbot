@@ -50,11 +50,20 @@ app.post('/webhook/',function(req, res){
 
 function decideMessage(sender, text1) {
     let text= text1.toLowerCase()
-    if (text.includes("summer")) {
+    if (text.includes("summer")) 
+    {
         sendImageMessage(sender)
-    }else if(text.includes("winter")){
+    }
+    else if(text.includes("winter"))
+    {
         sendGenericMessage(sender)
-    }else{
+    }
+    else if(text.includes("happy"))
+    {
+        sendText(sender, "Are you really happy")
+    }
+    else
+    {
         sendText(sender, "I like fall")
         sendButtonMessage(sender, "What is your favorite season?")
     }
@@ -95,8 +104,7 @@ function sendImageMessage(sender){
         "attachment":{
             "type":"image", 
             "payload":{
-              "url":"http://beauty-lounge358.ru/arkhiv-akciy.html", 
-              "is_reusable":true
+              "url":"http://beauty-lounge358.ru/arkhiv-akciy.html"
             }
           }
     }
