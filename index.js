@@ -171,18 +171,18 @@ function sendGenericMessage(sender){
                     "messenger_extensions": true,
                     "webview_height_ratio": "tall",
                   },
-                  "buttons":[
+                 /* "buttons":[
                     {
                       "type":"web_url",
                       "url":"https://google.com",
                       "title":"View Website"
                     },
-                 /*   {
+                    {
                       "type":"postback",
                       "title":"Start Chatting",
                       "payload":"hey"
-                    }   */           
-                  ]      
+                    }              
+              ]      */
                 }
               ]
             }
