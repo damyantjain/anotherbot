@@ -155,7 +155,31 @@ function sendImageMessage(sender){
 }
 
 function sendGenericMessage(sender){
+
     let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+               "template_type": "media",
+               "elements": [
+                  {
+                     "media_type": "video",
+                     "url": "https://www.facebook.com/smosh/videos/404945563247669/",
+                     "buttons": [
+                        {
+                           "type": "web_url",
+                           "url": "https://en.wikipedia.org/wiki/Fall",
+                           "title": "More about fall",
+                        }
+                     ]
+                    }
+               ]
+            }
+          } 
+    }
+    sendRequest(sender, messageData)
+
+ /*   let messageData = {
         "attachment":{
             "type":"template",
             "payload":{
@@ -177,7 +201,7 @@ function sendGenericMessage(sender){
             }
           }
     }
-    sendRequest(sender, MessageData)
+    sendRequest(sender, MessageData)*/
 }
 
 
