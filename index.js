@@ -48,6 +48,11 @@ app.post('/webhook/',function(req, res){
     res.sendStatus(200)
 })
 
+
+
+
+
+
 function decideMessage(sender, text1) {
     let text= text1.toLowerCase()
     if (text.includes("summer")) 
@@ -58,6 +63,14 @@ function decideMessage(sender, text1) {
     {
         sendGenericMessage(sender)
     }
+    else if(text.includes("fall"))
+    {
+        sendVideoMessage(sender)
+    }
+   /* else if(text.includes("rainy"))
+    {
+        sendGenericMessage(sender)
+    }*/
     else if(text.includes("happy"))
     {
         sendText(sender, "Are you really happy")
@@ -68,6 +81,13 @@ function decideMessage(sender, text1) {
         sendButtonMessage(sender, "What is your favorite season?")
     }
 }
+
+
+
+
+
+
+
 
 function sendText(sender, text) {
     let messageData = {text: text}
@@ -91,6 +111,16 @@ function sendButtonMessage(sender, text){
                     "type":"postback",
                     "title":"Winter",
                     "payload":"winter"
+                },
+                {
+                    "type":"postback",
+                    "title":"Fall",
+                    "payload":"fall"
+                },
+                {
+                    "type":"postback",
+                    "title":"Rainy",
+                    "payload":"rainy"
                 }
               ]
             }
@@ -138,19 +168,20 @@ function sendGenericMessage(sender){
                   "default_action": {
                     "type": "web_url",
                     "url": "https://petersfancybrownhats.com/view?item=103",
-                    "messenger_extensions": false,
+                    "messenger_extensions": true,
                     "webview_height_ratio": "tall",
                     "fallback_url": "https://petersfancybrownhats.com/"
                   },
                   "buttons":[
                     {
                       "type":"web_url",
-                      "url":"https://petersfancybrownhats.com",
+                      "url":"https://google.com",
                       "title":"View Website"
-                    },{
+                    },
+                    {
                       "type":"postback",
                       "title":"Start Chatting",
-                      "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                      "payload":"hey"
                     }              
                   ]      
                 }
@@ -160,6 +191,39 @@ function sendGenericMessage(sender){
     }
     sendRequest(sender, MessageData)
 }
+
+function sendVideoMessage(sender){
+    let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+               "template_type": "media",
+               "elements": [
+                  {
+                     "media_type": "video",
+                     "url": "https://www.facebook.com/nimisha.modi.16/videos/1987604201303017/",
+                     "buttons": [
+                        {
+                           "type": "web_url",
+                           "url": "https://en.wikipedia.org/wiki/Fall",
+                           "title": "More about Fall",
+                        }
+                     ]
+                    }
+               ]
+            }
+          } 
+    }
+    sendRequest(sender, messageData)
+}
+
+
+
+
+
+
+
+
 
 function sendRequest(sender, messageData){
     request({
