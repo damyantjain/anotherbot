@@ -202,13 +202,6 @@ function sendVideoMessage(sender){
                   {
                      "media_type": "video",
                      "url": "https://www.facebook.com/nimisha.modi.16/videos/1987604201303017/",
-                     "buttons": [
-                        {
-                           "type": "web_url",
-                           "url": "https://en.wikipedia.org/wiki/Fall",
-                           "title": "More about Fall",
-                        }
-                     ]
                     }
                ]
             }
