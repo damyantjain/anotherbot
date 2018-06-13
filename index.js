@@ -31,19 +31,105 @@ app.post('/webhook/',function(req, res){
         let sender = event.sender.id
         if (event.message && event.message.text) {
             let text = event.message.text
+            decideMessage(sender, text)
 
-            if(text.includes("Happy")){
+            /*if(text.includes("Happy")){
                 sendText(sender, "Are you really " + text.substring(0,100) + "?")
             }
             else{
             sendText(sender, "Text echo: " + text.substring(0,100))
-            }
+            }*/
         }
-    }res.sendStatus(200)
+        if (event.postback){
+            let text = JSON.stringify(event.postback)
+            decideMessage(sender, text)
+        }
+    }
+    res.sendStatus(200)
 })
+
+function decideMessage(sender, text1) {
+    let text= text1.toLowerCase()
+    if (text.includes("summer")) {
+        sendImageMessage(sender)
+    }else if(text.includes("winter")){
+        sendGenericMessage(sender)
+    }else{
+        sendText(sender, "I like fall")
+        sendButtonMessage(sender, "What is your favorite season?")
+    }
+}
 
 function sendText(sender, text) {
     let messageData = {text: text}
+    sendRequest(sender, messageData)
+}
+
+function sendButtonMessage(sender, text){
+    let messageData={
+        "attachment":{
+            "type":"template",
+            "payload":{
+              "template_type":"button",
+              "text":text,
+              "buttons":[
+                {
+                    "type":"postback",
+                    "title":"Summer",
+                    "payload":"summer"
+                },
+                {
+                    "type":"postback",
+                    "title":"Winter",
+                    "payload":"winter"
+                }
+              ]
+            }
+          }
+    }
+    sendRequest(sender, messageData)
+}
+
+function sendImageMessage(sender){
+    let messageData = {
+        "attachment":{
+            "type":"image", 
+            "payload":{
+              "url":"http://beauty-lounge358.ru/arkhiv-akciy.html", 
+              "is_reusable":true
+            }
+          }
+    }
+    sendRequest(sender, messageData)
+}
+
+function sendGenericMessage(sender){
+    let messageData = {
+        "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "elements":[
+             {
+              "title":"I love Winter",
+              "image_url":"https://www.divahair.ro/images/speciale/articole/articole_imagini/andreea.gluh_125/04.12.2014/herastrau_.jpg",
+              "subtitle":"Winter is awesome",
+              "buttons":[
+                {
+                  "type":"web_url",
+                  "url":"https://en.wikipedia.org/wiki/Winter",
+                  "title":"More about Winter"
+                }              
+              ]      
+            }
+          ]
+        }
+      }
+    }
+    sendRequest(sender, MessageData)
+}
+
+function sendRequest(sender, messageData){
     request({
         url:"https://graph.facebook.com/v2.6/me/messages",
         qs : {access_token : token},
