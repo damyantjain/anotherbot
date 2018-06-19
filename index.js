@@ -56,7 +56,7 @@ app.post('/webhook/',function(req, res){
 
 function decideMessage(sender, text1) {
     let text= text1.toLowerCase()
-    const greeting = firstEntity(message.nlp, 'greetings');
+    const greeting = firstEntity(message.nlp, 'greetings');s
     if (greeting && greeting.confidence > 0.8)
     {
         sendResponse('Hi there!');
@@ -387,8 +387,8 @@ function sendRequest(sender, messageData){
     })
 }
 
-function firstEntity(nlp, name) {
-    return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
+function firstEntity(nlp, text) {
+    return nlp && nlp.entities && nlp.entities[text] && nlp.entities[text][0];
   }
 
 app.listen(app.get('port'), function(){
