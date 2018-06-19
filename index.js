@@ -269,13 +269,6 @@ function sendListMessage(sender){
                 "title": "Scarf",
                 "subtitle": "$100",
                 "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/scarf_grande.png?v=1470769109",
-                "default_action": {
-                  "type":"web_url",
-                  "url": "https://www.atticandbutton.com/products/scarf",
-                  "messenger_extensions": true,
-                  "webview_height_ratio": "tall",
-                  "fallback_url": "https://www.atticandbutton.com/products/scarf"
-                },
                 "buttons":[
                 {
                   "type":"web_url",
@@ -285,12 +278,7 @@ function sendListMessage(sender){
                 {
                   "type": "postback",
                   "title": "Buy",
-                  "payload": JSON.stringify({
-                    "title":"Camel Marl Woven Scarf",
-                    "url": "https://www.atticandbutton.com/products/camel-marl-woven-scarf",
-                    "subtitle": "$50",
-                    "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/TM56P13MCAM_Zoom_F_1_grande.jpg?v=1470872017"
-                  })
+                  "payload":"receipt"
                 }              
               ]
             }]
