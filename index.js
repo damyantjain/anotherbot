@@ -262,23 +262,40 @@ function sendListMessage(sender){
     let messageData = {
         "attachment": {
             "type": "template",
-            "payload": {
-               "template_type": "media",
-               "elements": [
-                  {
-                     "media_type": "video",
-                     "url": "https://www.facebook.com/smosh/videos/404945563247669/",
-                     "buttons": [
-                        {
-                           "type": "web_url",
-                           "url": "https://en.wikipedia.org/wiki/Fall",
-                           "title": "More about fall",
-                        }
-                     ]
-                    }
-               ]
-            }
+            "payload":{
+              "template_type":"generic",
+              "elements":[
+              {
+                "title": "Scarf",
+                "subtitle": "$100",
+                "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/scarf_grande.png?v=1470769109",
+                "default_action": {
+                  "type":"web_url",
+                  "url": "https://www.atticandbutton.com/products/scarf",
+                  "messenger_extensions": true,
+                  "webview_height_ratio": "tall",
+                  "fallback_url": "https://www.atticandbutton.com/products/scarf"
+                },
+                "buttons":[
+                {
+                  "type":"web_url",
+                  "url":"https://www.atticandbutton.com/products/scarf",
+                  "title":"View Scarf"
+                },
+                {
+                  "type": "postback",
+                  "title": "Buy",
+                  "payload": JSON.stringify({
+                    "title":"Camel Marl Woven Scarf",
+                    "url": "https://www.atticandbutton.com/products/camel-marl-woven-scarf",
+                    "subtitle": "$50",
+                    "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/TM56P13MCAM_Zoom_F_1_grande.jpg?v=1470872017"
+                  })
+                }              
+              ]
+            }]
           }
+        }
     }    
     sendRequest(sender, messageData)
 }
