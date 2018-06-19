@@ -305,9 +305,9 @@ function sendListMessage(sender){
                     },
                     "buttons": [
                         {
-                        "type": "postback",
-                        "title": "Buy",
-                        "payload":"receipt"
+                        "type": "phone number",
+                        "title": "Call Representative",
+                        "payload":"+917708883722"
                     }
                 ]
                 }, 
@@ -345,7 +345,9 @@ function sendVideoMessage(sender){
                   {
                      "media_type": "video",
                      "url": "https://www.facebook.com/smosh/videos/404945563247669/",
-                     
+                
+                     //share button   
+                
                      "buttons": [
                         {
                           "type": "element_share",
