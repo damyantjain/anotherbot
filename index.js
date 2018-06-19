@@ -159,7 +159,8 @@ function sendGenericMessage(sender){
         "attachment":{
             "type":"template",
             "payload":{
-              "template_type":"generic",
+              "template_type":"list",
+              "top_element_style": "compact",
               "elements":[
                  {
                   "title":"Welcome!",
@@ -197,9 +198,7 @@ function sendListMessage(sender){
                     {
                       "title": "View",
                       "type": "web_url",
-                      "url": "https://google.com",
-                      "messenger_extensions": true,
-                      "webview_height_ratio": "tall",            
+                      "url": "https://google.com"           
                     }
                   ]
                 },
