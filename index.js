@@ -275,13 +275,12 @@ function sendListMessage(sender){
                   "title": "Scarf",
                     "subtitle": "$100",
                     "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/scarf_grande.png?v=1470769109",
-                  /*  "default_action": {
-                        "type":"web_url",
-                        "url": "https://www.atticandbutton.com/products/scarf",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://www.atticandbutton.com/products/scarf"
-                    },*/
+                    
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "https://petersfancybrownhats.com/view?item=103",
+                    "webview_height_ratio": "tall",
+                    },
                     "buttons": [
                         {
                         "type": "postback",
