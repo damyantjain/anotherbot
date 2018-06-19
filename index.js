@@ -293,6 +293,12 @@ function sendListMessage(sender){
                   "title": "Acrylic Cashmere Scarf",
                     "subtitle": "$125",
                     "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/4195500_medium_3126d8ed-8d2c-4989-9e91-e2b18dafe6d7_grande.png?v=1470770727",
+                    
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://petersfancybrownhats.com/view?item=103",
+                        "webview_height_ratio": "tall",
+                    },
                     "buttons": [
                         {
                         "type": "postback",
