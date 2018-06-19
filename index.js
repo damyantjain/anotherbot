@@ -79,7 +79,7 @@ function decideMessage(sender, text1) {
     {
         sendReceiptMessage(sender)
     }
-    else if(text.includes("hey" || "hi" || "hello"))
+    else if(text.includes("hey") || text.includes("hi") || text.includes("hello"))
     {
         sendText(sender, "I like fall")
         sendButtonMessage(sender, "What is your favorite season?")
