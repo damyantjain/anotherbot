@@ -169,6 +169,11 @@ function sendGenericMessage(sender){
                   "title":"Welcome!",
                   "image_url":"http://images6.fanpop.com/image/photos/36200000/snow-image-snow-36241624-500-375.png",
                   "subtitle":"Winter is love.",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "https://petersfancybrownhats.com/view?item=103",
+                    "webview_height_ratio": "tall",
+                  },
                   "buttons":[
                     {
                       "type":"web_url",
@@ -267,16 +272,16 @@ function sendListMessage(sender){
                 "top_element_style": "compact",
                 "elements": [
                 {
-                    "title": "Classic Blue T-Shirt",
-                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
-                    "subtitle": "100% Cotton, 200% Comfortable",
-                    "default_action": {
-                      "type": "web_url",
-                      "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-                      "messenger_extensions": true,
-                      "webview_height_ratio": "tall",
-                      "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                    },
+                  "title": "Scarf",
+                    "subtitle": "$100",
+                    "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/scarf_grande.png?v=1470769109",
+                  /*  "default_action": {
+                        "type":"web_url",
+                        "url": "https://www.atticandbutton.com/products/scarf",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://www.atticandbutton.com/products/scarf"
+                    },*/
                     "buttons": [
                         {
                         "type": "postback",
