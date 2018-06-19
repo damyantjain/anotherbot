@@ -264,7 +264,7 @@ function sendListMessage(sender){
             "type": "template",
             "payload": {
                 "template_type": "list",
-              //  "top_element_style": "compact",
+                "top_element_style": "full",
                 "elements": [
                 {
                   "title": "Scarf",
@@ -292,6 +292,18 @@ function sendListMessage(sender){
                     }
                 ]
                 }, 
+                {
+                    "title": "Acrylic Cashmere Scarf",
+                      "subtitle": "$125",
+                      "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/4195500_medium_3126d8ed-8d2c-4989-9e91-e2b18dafe6d7_grande.png?v=1470770727",
+                      "buttons": [
+                          {
+                          "type": "postback",
+                          "title": "Buy",
+                          "payload":"receipt"
+                      }
+                  ]
+                  }, 
             ],
             "buttons": [
                 {
