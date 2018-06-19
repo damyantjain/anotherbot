@@ -274,9 +274,7 @@ function sendListMessage(sender){
                         {
                         "type": "postback",
                         "title": "Buy",
-                        "payload":"receipt",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall", 
+                        "payload":"receipt", 
                     }
                 ]
                 },
