@@ -184,9 +184,9 @@ function sendGenericMessage(sender){
                     "subtitle":"Winter is love.",
                     "buttons":[
                       {
-                        "type":"web_url",
-                        "url":"https://google.com",
-                        "title":"View Website"
+                        "type":"postback",
+                        "payload":"receipt",
+                        "title":"Buy"
                       },
                                  
                     ]      
