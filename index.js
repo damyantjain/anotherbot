@@ -84,6 +84,10 @@ function decideMessage(sender, text1) {
         sendText(sender, "I like fall")
         sendButtonMessage(sender, "What is your favorite season?")
     }
+    else
+    {
+        sendText(sender, "Sorry, I did not get you correctly")   
+    }
 }
 
 
@@ -341,6 +345,39 @@ function sendVideoMessage(sender){
                   {
                      "media_type": "video",
                      "url": "https://www.facebook.com/smosh/videos/404945563247669/",
+                     
+                     "buttons": [
+                        {
+                          "type": "element_share",
+                          "share_contents": { 
+                            "attachment": {
+                              "type": "template",
+                              "payload": {
+                                "template_type": "generic",
+                                "elements": [
+                                  {
+                                    "title": "I took the hat quiz",
+                                    "subtitle": "My result: Fez",
+                                    "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
+                                    "default_action": {
+                                      "type": "web_url",
+                                      "url": "http://m.me/petershats?ref=invited_by_24601"
+                                    },
+                                    "buttons": [
+                                      {
+                                        "type": "web_url",
+                                        "url": "http://m.me/petershats?ref=invited_by_24601", 
+                                        "title": "Take Quiz"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                    ],
+
                      "buttons": [
                         {
                            "type": "web_url",
