@@ -277,7 +277,7 @@ function sendListMessage(sender){
                 },
                 {
                   "type": "postback",
-                  "title": "Buy",
+                  "title": "Buys",
                   "payload":"receipt"
                 }              
               ]
