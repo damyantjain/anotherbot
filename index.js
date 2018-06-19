@@ -289,6 +289,13 @@ function sendListMessage(sender){
                   "title": "Acrylic Cashmere Scarf",
                     "subtitle": "$125",
                     "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/4195500_medium_3126d8ed-8d2c-4989-9e91-e2b18dafe6d7_grande.png?v=1470770727",
+                    "default_action": {
+                        "type":"web_url",
+                        "url": "https://www.atticandbutton.com/products/scarf",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://www.atticandbutton.com/products/scarf"
+                    },
                     "buttons": [
                         {
                         "type": "postback",
@@ -301,6 +308,13 @@ function sendListMessage(sender){
                     "title": "Acrylic Cashmere Scarf",
                       "subtitle": "$125",
                       "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/4195500_medium_3126d8ed-8d2c-4989-9e91-e2b18dafe6d7_grande.png?v=1470770727",
+                      "default_action": {
+                        "type":"web_url",
+                        "url": "https://www.atticandbutton.com/products/scarf",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://www.atticandbutton.com/products/scarf"
+                    },
                       "buttons": [
                           {
                           "type": "postback",
