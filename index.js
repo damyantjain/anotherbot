@@ -267,16 +267,16 @@ function sendListMessage(sender){
                 "top_element_style": "compact",
                 "elements": [
                 {
-                  "title": "Scarf",
-                    "subtitle": "$100",
-                    "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/scarf_grande.png?v=1470769109",
-                  /*  "default_action": {
-                        "type":"web_url",
-                        "url": "https://www.atticandbutton.com/products/scarf",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://www.atticandbutton.com/products/scarf"
-                    },*/
+                    "title": "Classic Blue T-Shirt",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+                    "subtitle": "100% Cotton, 200% Comfortable",
+                    "default_action": {
+                      "type": "web_url",
+                      "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+                      "messenger_extensions": true,
+                      "webview_height_ratio": "tall",
+                      "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    },
                     "buttons": [
                         {
                         "type": "postback",
