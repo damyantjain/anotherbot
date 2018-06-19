@@ -180,9 +180,9 @@ function sendGenericMessage(sender){
                   },
                   "buttons":[
                     {
-                      "type":"web_url",
-                      "url":"https://google.com",
-                      "title":"View Website"
+                      "type":"phone_number",
+                      "payload":"+917708883722",
+                      "title":"Call Representative"
                     },
                                
                   ]      
@@ -305,9 +305,9 @@ function sendListMessage(sender){
                     },
                     "buttons": [
                         {
-                        "type": "phone number",
-                        "title": "Call Representative",
-                        "payload":"+917708883722"
+                        "type": "postback",
+                        "title": "Buy",
+                        "payload":"receipt"
                     }
                 ]
                 }, 
