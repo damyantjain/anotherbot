@@ -40,7 +40,6 @@ app.post('/webhook/',function(req, res){
             sendText(sender, "Text echo: " + text.substring(0,100))
             }*/
         }
-        
         if (event.postback){
             let text = JSON.stringify(event.postback)
             decideMessage(sender, text)
@@ -56,12 +55,7 @@ app.post('/webhook/',function(req, res){
 
 function decideMessage(sender, text1) {
     let text= text1.toLowerCase()
-    const greeting = firstEntity(message.nlp, 'greetings');s
-    if (greeting && greeting.confidence > 0.8)
-    {
-        sendResponse('Hi there!');
-    }
-    else if (text.includes("summer")) 
+    if (text.includes("summer")) 
     {
         sendImageMessage(sender)
     }
@@ -386,10 +380,6 @@ function sendRequest(sender, messageData){
         }
     })
 }
-
-function firstEntity(nlp, text) {
-    return nlp && nlp.entities && nlp.entities[text] && nlp.entities[text][0];
-  }
 
 app.listen(app.get('port'), function(){
     console.log("running: port")
