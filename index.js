@@ -203,6 +203,7 @@ function sendListMessage(sender){
                     }
                   ]
                 },
+             /*
                 {
                   "title": "Classic White T-Shirt",
                   "subtitle": "See all our colors",
@@ -213,7 +214,7 @@ function sendListMessage(sender){
                     "webview_height_ratio": "tall"
                   }
                 },
-                {
+               {
                   "title": "Classic Blue T-Shirt",
                   "image_url": "http://images6.fanpop.com/image/photos/36200000/snow-image-snow-36241624-500-375.png",
                   "subtitle": "100% Cotton, 200% Comfortable",
@@ -234,15 +235,15 @@ function sendListMessage(sender){
                                   
                     }
                   ]        
-                }
+              }*/
               ],
-               "buttons": [
+             /*  "buttons": [
                 {
                   "title": "View More",
                   "type": "postback",
                   "payload": "hey"            
                 }
-              ]  
+               ]  */
             }
           }
     }
