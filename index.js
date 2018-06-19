@@ -264,7 +264,7 @@ function sendListMessage(sender){
             "type": "template",
             "payload": {
                 "template_type": "list",
-                "top_element_style": "full",
+                "top_element_style": "compact",
                 "elements": [
                 {
                   "title": "Scarf",
@@ -304,14 +304,7 @@ function sendListMessage(sender){
                       }
                   ]
                   }, 
-            ],
-            "buttons": [
-                {
-                  "title": "View More",
-                  "type": "web_url",
-                  "url": "https://www.atticandbutton.com/collections/all/Scarf"            
-                }
-              ]
+            ]
         }
     }
     }    
