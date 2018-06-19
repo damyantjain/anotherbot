@@ -363,13 +363,13 @@ function sendVideoMessage(sender){
                                       "type": "web_url",
                                       "url": "http://m.me/petershats?ref=invited_by_24601"
                                     },
-                                  /*  "buttons": [
+                                    "buttons": [
                                       {
                                         "type": "web_url",
                                         "url": "http://m.me/petershats?ref=invited_by_24601", 
                                         "title": "Take Quiz"
                                       }
-                                    ]*/
+                                    ]
                                   }
                                 ]
                               }
@@ -378,13 +378,13 @@ function sendVideoMessage(sender){
                         }
                     ],
 
-                     "buttons": [
+                   /*  "buttons": [
                         {
                            "type": "web_url",
                            "url": "https://en.wikipedia.org/wiki/Fall",
                            "title": "More about fall",
                         }
-                     ]
+                     ]*/
                     }
                ]
             }
