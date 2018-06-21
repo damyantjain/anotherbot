@@ -62,7 +62,7 @@ app.post('/webhook/',function(req, res){
 
 
 function decideMessage(sender, text1) {
-    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender_psid);
+    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
   
     // The text query request.
     const request = {
@@ -79,6 +79,7 @@ function decideMessage(sender, text1) {
     .detectIntent(request).then((response)=> {
         console.log(response);
     })
+    
 
     let text= text1.toLowerCase()
     if (text.includes("summer")) 
@@ -432,7 +433,9 @@ function sendRequest(sender, messageData){
             recipient: {id: sender},
             message : messageData
         }
-    }, function(error, response, body) {
+    }, 
+    
+    function(error, response, body) {
         if (error) {
             console.log("sending error")
         }else if (response.body.error){
