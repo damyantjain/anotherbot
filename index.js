@@ -41,7 +41,24 @@ app.post('/webhook/',function(req, res){
         let sender = event.sender.id
         if (event.message && event.message.text) {
             let text = event.message.text
-            decideMessage(sender, text)
+            const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender_psid);
+  
+            // The text query request.
+            const request = {
+            session: sessionPath,
+                queryInput: {
+                    text: {
+                        text: text1,
+                        languageCode: 'en-US',
+                    },
+                },
+            };
+        
+            sessionClient
+            .detectIntent(request).then((response)=> {
+                console.log(response);
+            })
+          //  decideMessage(sender, text)
 
             /*if(text.includes("Happy")){
                 sendText(sender, "Are you really " + text.substring(0,100) + "?")
@@ -50,10 +67,10 @@ app.post('/webhook/',function(req, res){
             sendText(sender, "Text echo: " + text.substring(0,100))
             }*/
         }
-        if (event.postback){
-            let text = JSON.stringify(event.postback)
-            decideMessage(sender, text)
-        }
+     //   if (event.postback){
+       //     let text = JSON.stringify(event.postback)
+         //   decideMessage(sender, text)
+       // }
     }
     res.sendStatus(200)
 })
@@ -61,7 +78,7 @@ app.post('/webhook/',function(req, res){
 
 
 
-function decideMessage(sender, text1) {
+/*function decideMessage(sender, text1) {
     const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender_psid);
   
     // The text query request.
@@ -114,7 +131,7 @@ function decideMessage(sender, text1) {
     {
         sendText(sender, "Sorry, I did not get you correctly")   
     }
-}
+}*/
 
 
 
