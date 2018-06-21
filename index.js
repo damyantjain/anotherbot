@@ -67,7 +67,7 @@ function decideMessage(sender, text1) {
     const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
   
     // The text query request.
-    const request = {
+    const reqt = {
     session: sessionPath,
         queryInput: {
             text: {
@@ -78,8 +78,8 @@ function decideMessage(sender, text1) {
     };
 
     sessionClient
-    .detectIntent(request).then((response)=> {
-        console.log(response);
+    .detectIntent(reqt).then((response)=> {
+        sendRequest(sender, response);
     })
 
     let text= text1.toLowerCase()
@@ -318,7 +318,7 @@ function sendListMessage(sender){
                 },
                 {
                   "title": "Acrylic Cashmere Scarf",
-                    "subtitle": "$125",
+                "subtitle": "$125",
                     "image_url": "https://cdn.shopify.com/s/files/1/0923/0916/products/4195500_medium_3126d8ed-8d2c-4989-9e91-e2b18dafe6d7_grande.png?v=1470770727",
                     
                     "default_action": {

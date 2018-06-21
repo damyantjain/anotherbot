@@ -19,7 +19,7 @@ const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, '12
     session: sessionPath,
         queryInput: {
             text: {
-                text: "hello",
+                text: "bye",
                 languageCode: 'en-US',
             },
         },
