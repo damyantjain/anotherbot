@@ -80,7 +80,7 @@ function decideMessage(sender, text1) {
         console.log(response);
         sendText(sender, response[0].queryResult.fulfillmentText)
     })
-    if (text1.includes("summer")) {
+
     let text= text1.toLowerCase()
     if (text.includes("summer")) 
     {
@@ -110,7 +110,7 @@ function decideMessage(sender, text1) {
     {
         sendText(sender, "I like fall")
         sendButtonMessage(sender, "What is your favorite season?")
-    }}
+    }
 }
 
 
