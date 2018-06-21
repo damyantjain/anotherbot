@@ -79,9 +79,11 @@ function decideMessage(sender, text1) {
 
     sessionClient
     .detectIntent(request).then((response)=> {
-        console.log(response);
-    })
+        const result = response.result.fulfillment.speech;
 
+        sendRequest(sender, result);
+    })
+};
     let text= text1.toLowerCase()
     if (text.includes("summer")) 
     {
@@ -116,7 +118,6 @@ function decideMessage(sender, text1) {
     {
         sendText(sender, "Sorry, I did not get you correctly")   
     }
-}
 
 
 
