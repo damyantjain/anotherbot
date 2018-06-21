@@ -111,10 +111,6 @@ function decideMessage(sender, text1) {
         sendText(sender, "I like fall")
         sendButtonMessage(sender, "What is your favorite season?")
     }
-    else
-    {
-        sendText(sender, "Sorry, I did not get you correctly")   
-    }
 }
 
 
