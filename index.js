@@ -79,8 +79,8 @@ function decideMessage(sender, text1) {
     
     sessionClient
     .detectIntent(reqt).then((response)=> {
-       const messageData = console.log(response);
-
+       const result = response;
+let messageData = {text: result}
        sendRequest(sender, messageData)
     })
 }
