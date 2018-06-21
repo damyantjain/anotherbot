@@ -58,58 +58,68 @@ app.post('/webhook/',function(req, res){
     res.sendStatus(200)
 })
 
-
+var myWords = ["hey","hi","summer","winter","fall","buy","receipt","rainy","hello","happy"];
 
 
 function decideMessage(sender, text1) {
-    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
-  
-    // The text query request.
-    const request = {
-    session: sessionPath,
-        queryInput: {
-            text: {
-                text: text1,
-                languageCode: 'en-US',
-            },
-        },
-    };
-
-    sessionClient
-    .detectIntent(request).then((response)=> {
-        console.log(response);
-        sendText(sender, response[0].queryResult.fulfillmentText)
-    })
-
     let text= text1.toLowerCase()
-    if (text.includes("summer")) 
+    for(let j=0;j<10;j++)
     {
-        sendImageMessage(sender)
+        if(text==myWords[j])
+        {
+            if (text.includes("summer")) 
+            {
+                sendImageMessage(sender)
+            }
+            else if(text.includes("winter"))
+            {
+                sendGenericMessage(sender)
+            }
+            else if(text.includes("fall"))
+            {
+                sendVideoMessage(sender)
+            }
+            else if(text.includes("rainy"))
+            {
+                sendListMessage(sender)
+            }
+            else if(text.includes("happy"))
+            {
+                sendText(sender, "Are you really happy")
+            }
+            else if(text.includes("receipt"))
+            {
+                sendReceiptMessage(sender)
+            }
+            else if(text.includes("hey") || text.includes("hi") || text.includes("hello"))
+            {
+                sendText(sender, "I like fall")
+                sendButtonMessage(sender, "What is your favorite season?")
+            }
+            let a=1;
+        }
+        
     }
-    else if(text.includes("winter"))
+    if(a!=1)
     {
-        sendGenericMessage(sender)
-    }
-    else if(text.includes("fall"))
-    {
-        sendVideoMessage(sender)
-    }
-    else if(text.includes("rainy"))
-    {
-        sendListMessage(sender)
-    }
-    else if(text.includes("happy"))
-    {
-        sendText(sender, "Are you really happy")
-    }
-    else if(text.includes("receipt"))
-    {
-        sendReceiptMessage(sender)
-    }
-    else if(text.includes("hey") || text.includes("hi") || text.includes("hello"))
-    {
-        sendText(sender, "I like fall")
-        sendButtonMessage(sender, "What is your favorite season?")
+        const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
+  
+        // The text query request.
+        const request = {
+        session: sessionPath,
+            queryInput: {
+                text: {
+                    text: text,
+                    languageCode: 'en-US',
+                },
+            },
+        };
+    
+        sessionClient
+        .detectIntent(request).then((response)=> {
+            console.log(response);
+            sendText(sender, response[0].queryResult.fulfillmentText)
+        })
     }
 }
 
