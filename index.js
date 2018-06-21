@@ -59,6 +59,8 @@ app.post('/webhook/',function(req, res){
 })
 
 
+
+
 function decideMessage(sender, text1) {
     const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
   
@@ -109,7 +111,6 @@ function decideMessage(sender, text1) {
         sendText(sender, "I like fall")
         sendButtonMessage(sender, "What is your favorite season?")
     }
-
 }
 
 
