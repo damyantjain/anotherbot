@@ -76,7 +76,7 @@ function decideMessage(sender, text1) {
     };
 
     sessionClient
-    .detectIntent(request).then((response)=> {node
+    .detectIntent(request).then((response)=> {
         console.log(response);
         sendText(sender, response[0].queryResult.fulfillmentText)
     })
