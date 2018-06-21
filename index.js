@@ -2,8 +2,6 @@
 
 const path = require('path');
 const fs = require('fs');
-require('dotenv').config();
-
 fs.writeFileSync('key.json', process.env.GOOGEL_KEY);
 process.env['GOOGLE_APPLICATION_CREDENTIALS'] = path.join(`${__dirname}/key.json`);
 
