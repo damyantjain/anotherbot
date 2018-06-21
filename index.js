@@ -2,7 +2,7 @@
 
 const path = require('path');
 const fs = require('fs');
-fs.writeFileSync('key.json', process.env.GOOGEL_KEY);
+fs.writeFileSync('key.json', process.env.GOOGLE_KEY);
 process.env['GOOGLE_APPLICATION_CREDENTIALS'] = path.join(`${__dirname}/key.json`);
 
 const express = require('express')
