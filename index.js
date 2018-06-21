@@ -1,8 +1,16 @@
 'use strict'
 
+
+const path = require('path');
+const fs = require('fs');
+fs.writeFileSync('key.json', process.env.GOOGEL_KEY);
+process.env['GOOGLE_APPLICATION_CREDENTIALS'] = path.join(`${__dirname}/key.json`);
+
 const express = require('express')
 const bodyParser = require('body-parser')
-const request = require('request')
+const request = require('request');
+const dialogflow = require('dialogflow');
+const sessionClient = new dialogflow.SessionsClient();
 
 const app = express()
 
@@ -51,9 +59,25 @@ app.post('/webhook/',function(req, res){
 
 
 
-
-
 function decideMessage(sender, text1) {
+    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender_psid);
+  
+    // The text query request.
+    const request = {
+    session: sessionPath,
+        queryInput: {
+            text: {
+                text: text1,
+                languageCode: 'en-US',
+            },
+        },
+    };
+
+    sessionClient
+    .detectIntent(request).then((response)=> {
+        console.log(response);
+    })
+
     let text= text1.toLowerCase()
     if (text.includes("summer")) 
     {
@@ -89,11 +113,6 @@ function decideMessage(sender, text1) {
         sendText(sender, "Sorry, I did not get you correctly")   
     }
 }
-
-
-
-
-
 
 
 
@@ -423,3 +442,4 @@ function sendRequest(sender, messageData){
 app.listen(app.get('port'), function(){
     console.log("running: port")
 })
+
