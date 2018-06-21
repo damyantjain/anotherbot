@@ -62,7 +62,7 @@ app.post('/webhook/',function(req, res){
 
 
 function decideMessage(sender, text1) {
-    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender_psid);
+    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
   
     // The text query request.
     const request = {
@@ -80,7 +80,7 @@ function decideMessage(sender, text1) {
         console.log(response);
     })
 
-   /* let text= text1.toLowerCase()
+    let text= text1.toLowerCase()
     if (text.includes("summer")) 
     {
         sendImageMessage(sender)
@@ -113,7 +113,7 @@ function decideMessage(sender, text1) {
     else
     {
         sendText(sender, "Sorry, I did not get you correctly")   
-    }*/
+    }
 }
 
 
