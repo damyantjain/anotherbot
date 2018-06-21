@@ -67,7 +67,7 @@ function decideMessage(sender, text1) {
     const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
   
     // The text query request.
-    const request = {
+    const reqt = {
     session: sessionPath,
         queryInput: {
             text: {
@@ -76,14 +76,15 @@ function decideMessage(sender, text1) {
             },
         },
     };
-
+    
     sessionClient
-    .detectIntent(request).then((response)=> {
-        const result = response.result.fulfillment.speech;
+    .detectIntent(reqt).then((response)=> {
+       const result = console.log(response);
+       let messageData={result}
 
-        sendRequest(sender, result);
+       sendRequest(sender, messageData)
     })
-};
+}
     let text= text1.toLowerCase()
     if (text.includes("summer")) 
     {
