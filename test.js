@@ -27,5 +27,5 @@ const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, '12
 
     sessionClient
         .detectIntent(request).then((response)=> {
-            console.log(response);
+            console.log(response[0].queryResult.fulfillmentText);
         })
