@@ -100,8 +100,8 @@ function decideMessage(sender, text1) {
         }
         
     }
-    if(a!=1)
-    {
+    
+        
         const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
   
         // The text query request.
@@ -121,7 +121,7 @@ function decideMessage(sender, text1) {
             sendText(sender, response[0].queryResult.fulfillmentText)
         })
     }
-}
+
 
 
 
