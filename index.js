@@ -27,12 +27,14 @@ app.get('/', function(req, res){
 
 let token = "EAAck6HVMCxYBAARL5kTT62fxPHUgMUTZAgessatN86qiaWodTTIyejb5gGR02dxKPLuCEhmza02XZCrZAyUzTjuR0kDZAYNIEmbZAOtgmIU3pWu3B7aXZB9wgY1r1AYSGZBIcK6LTZAd0f9wOZCRpjE88E8sDUUNo0ZCpDZAoRc5fjSFgZDZD"
 
+
 app.get('/webhook/', function(req, res){
     if (req.query['hub.verify_token']== "damyantjain"){
         res.send(req.query['hub.challenge'])
     }
     res.send("Wrong token")
 })
+
 
 app.post('/webhook/',function(req, res){
     let messaging_events = req.body.entry[0].messaging
@@ -62,7 +64,7 @@ app.post('/webhook/',function(req, res){
 
 
 function decideMessage(sender, text1) {
-    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
+    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender_psid);
   
     // The text query request.
     const request = {
@@ -79,7 +81,6 @@ function decideMessage(sender, text1) {
     .detectIntent(request).then((response)=> {
         console.log(response);
     })
-    
 
     let text= text1.toLowerCase()
     if (text.includes("summer")) 
@@ -433,9 +434,7 @@ function sendRequest(sender, messageData){
             recipient: {id: sender},
             message : messageData
         }
-    }, 
-    
-    function(error, response, body) {
+    }, function(error, response, body) {
         if (error) {
             console.log("sending error")
         }else if (response.body.error){
@@ -443,8 +442,6 @@ function sendRequest(sender, messageData){
         }
     })
 }
-
-
 
 app.listen(app.get('port'), function(){
     console.log("running: port")
