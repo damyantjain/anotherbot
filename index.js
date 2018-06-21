@@ -10,7 +10,7 @@ process.env['GOOGLE_APPLICATION_CREDENTIALS'] = path.join(`${__dirname}/key.json
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const reqt = require('request');
+const request = require('request');
 const dialogflow = require('dialogflow');
 const sessionClient = new dialogflow.SessionsClient();
 
@@ -424,7 +424,7 @@ function sendVideoMessage(sender){
 
 
 function sendRequest(sender, messageData){
-    reqt({
+    request({
         url:"https://graph.facebook.com/v2.6/me/messages",
         qs : {access_token : token},
         method: "POST",
