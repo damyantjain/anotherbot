@@ -67,7 +67,7 @@ function decideMessage(sender, text1) {
         let b=1;
     }
 
-    if(b!=1)
+  /*  if(b!=1)
     {
     const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
   
@@ -87,7 +87,7 @@ function decideMessage(sender, text1) {
         console.log(response);
         sendText(sender, response[0].queryResult.fulfillmentText)
     })
-    }
+    }*/
 
 if(b==1)
 {
