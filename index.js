@@ -61,7 +61,7 @@ app.post('/webhook/',function(req, res){
 
 function decideMessage(sender, text1) {
 
-    if(text1 == "hi","hello","hey","summer","winter","rainy","fall","receipt","bill","happy")
+    if(text1 == "hi" || "hello" || "hey" || "summer" || "winter" || "rainy" || "fall" || "receipt" || "bill" || "happy")
     {
         let b=1;
     }
