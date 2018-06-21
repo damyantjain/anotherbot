@@ -1,6 +1,5 @@
 'use strict'
 
-
 const path = require('path');
 const fs = require('fs');
 require('dotenv').config();
@@ -15,6 +14,7 @@ const dialogflow = require('dialogflow');
 const sessionClient = new dialogflow.SessionsClient();
 
 const app = express()
+
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -64,7 +64,7 @@ app.post('/webhook/',function(req, res){
 
 
 function decideMessage(sender, text1) {
-    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender_psid);
+    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
   
     // The text query request.
     const request = {
