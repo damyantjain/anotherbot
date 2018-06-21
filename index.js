@@ -61,7 +61,8 @@ app.post('/webhook/',function(req, res){
 
 function decideMessage(sender, text1) {
 
-    if(text1 == "hi" || "hello" || "hey" || "summer" || "winter" || "rainy" || "fall" || "receipt" || "bill" || "happy")
+    let text= text1.toLowerCase()
+    if(text == "hi" || "hello" || "hey" || "summer" || "winter" || "rainy" || "fall" || "receipt" || "bill" || "happy")
     {
         let b=1;
     }
@@ -75,7 +76,7 @@ function decideMessage(sender, text1) {
     session: sessionPath,
         queryInput: {
             text: {
-                text: text1,
+                text: text,
                 languageCode: 'en-US',
             },
         },
@@ -90,7 +91,7 @@ function decideMessage(sender, text1) {
 
 if(b==1)
 {
-    let text= text1.toLowerCase()
+    
     if (text.includes("summer")) 
     {
         sendImageMessage(sender)
