@@ -10,7 +10,7 @@ process.env['GOOGLE_APPLICATION_CREDENTIALS'] = path.join(`${__dirname}/key.json
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const request = require('request');
+const reqt = require('request');
 const dialogflow = require('dialogflow');
 const sessionClient = new dialogflow.SessionsClient();
 
@@ -62,7 +62,7 @@ app.post('/webhook/',function(req, res){
 
 
 function decideMessage(sender, text1) {
-    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
+    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender_psid);
   
     // The text query request.
     const request = {
@@ -80,7 +80,7 @@ function decideMessage(sender, text1) {
         console.log(response);
     })
 
-   /* let text= text1.toLowerCase()
+    let text= text1.toLowerCase()
     if (text.includes("summer")) 
     {
         sendImageMessage(sender)
@@ -113,7 +113,7 @@ function decideMessage(sender, text1) {
     else
     {
         sendText(sender, "Sorry, I did not get you correctly")   
-    }*/
+    }
 }
 
 
@@ -424,7 +424,7 @@ function sendVideoMessage(sender){
 
 
 function sendRequest(sender, messageData){
-    request({
+    reqt({
         url:"https://graph.facebook.com/v2.6/me/messages",
         qs : {access_token : token},
         method: "POST",
