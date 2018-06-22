@@ -60,27 +60,9 @@ app.post('/webhook/',function(req, res){
 
 
 
-
 function decideMessage(sender, text1) {
-    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
-  
-    // The text query request.
-    const request = {
-    session: sessionPath,
-        queryInput: {
-            text: {
-                text: text1,
-                languageCode: 'en-US',
-            },
-        },
-    };
-
-    sessionClient
-    .detectIntent(request).then((response)=> {
-        console.log(response);
-        sendText(sender, response[0].queryResult.fulfillmentText)
-    })
-
+    if (text.includes("hey") || text.includes("hi") || text.includes("hello"))
+    {
     let text= text1.toLowerCase()
     if (text.includes("summer")) 
     {
@@ -112,7 +94,28 @@ function decideMessage(sender, text1) {
         sendButtonMessage(sender, "What is your favorite season?")
     }
 }
+else{
+    const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
+  
+    // The text query request.
+    const request = {
+    session: sessionPath,
+        queryInput: {
+            text: {
+                text: text1,
+                languageCode: 'en-US',
+            },
+        },
+    };
 
+    sessionClient
+    .detectIntent(request).then((response)=> {
+        console.log(response);
+        sendText(sender, response[0].queryResult.fulfillmentText)
+    })
+
+}
+}
 
 
 function sendText(sender, text) {
