@@ -61,9 +61,10 @@ app.post('/webhook/',function(req, res){
 
 
 function decideMessage(sender, text1) {
-    if (text1.includes("hey") || text1.includes("hi") || text1.includes("hello") || text1.includes("summer") || text1.includes("rainy") || text1.includes("fall")|| text1.includes("winter")|| text1.includes("fall") || text1.includes("receipt")|| text1.includes("happy"))
+    if (text1 == "hey" || text1.includes("hi") || text1.includes("hello") || text1.includes("summer") || text1.includes("rainy") || text1.includes("fall")|| text1.includes("winter")|| text1.includes("fall") || text1.includes("receipt")|| text1.includes("happy"))
     {
     let text= text1.toLowerCase()
+    let text=text.trim()
     if (text.includes("summer")) 
     {
         sendImageMessage(sender)
@@ -90,7 +91,7 @@ function decideMessage(sender, text1) {
     }
     else if(text.includes("hey") || text.includes("hi") || text.includes("hello"))
     {
-        sendText(sender, "I like fall")
+        sendText(sender, "Hey, I am just another bot. I can tell you about various seasons?. I like Fall.")
         sendButtonMessage(sender, "What is your favorite season?")
     }
 }
