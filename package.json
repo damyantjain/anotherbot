@@ -21,6 +21,7 @@
     "dialogflow": "^0.5.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "mongoose": "^5.1.7",
     "request": "^2.87.0"
   }
 }
