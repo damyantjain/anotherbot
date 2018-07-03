@@ -11,8 +11,26 @@ const request = require('request');
 const dialogflow = require('dialogflow');
 const sessionClient = new dialogflow.SessionsClient();
 
-const app = express()
 
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'db4free.net',
+  user     : 'anotherbot',
+  password : 'Damyant@580',
+  database : 'anotherbot'
+});
+
+connection.connect();
+connection.query('SELECT * FROM `Name`', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].solution);
+    console.log(results);
+    
+});
+  
+connection.end();
+
+const app = express()
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -314,6 +332,7 @@ function sendListMessage(sender){
                     }
                 ]
                 },
+                //
                 {
                   "title": "Acrylic Cashmere Scarf",
                 "subtitle": "$125",
