@@ -69,7 +69,11 @@ app.post('/webhook/',function(req, res){
                     }else if (response.body.error){
                         console.log("response body error")
                     }
-                    console.log(body.first_name);
+                    console.log(body);
+                    let name = body.first_name;
+                    if (!name) {
+                        name = 'test';
+                    }
                     const post  = [ [ [sender, body.first_name] ] ];
                     connection.query('INSERT INTO users (id, name) VALUES ?', post, function (error, results) {
                         if (error) throw error;
