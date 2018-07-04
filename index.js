@@ -204,13 +204,10 @@ function sendButtonMessage(sender, text){
         "quick_replies":[
          {
             "content_type":"text",
-            "title":"Search",
-            "payload":"<POSTBACK_PAYLOAD>",
+            "title":"Fall",
+            "payload":"fall",
             "image_url":"http://example.com/img/red.png"
         },
-        {
-            "content_type":"location"
-        }
       ]
      }
      sendRequest(sender, messageData)
