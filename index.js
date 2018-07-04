@@ -103,7 +103,7 @@ app.post('/webhook/',function(req, res){
 
 
 function decideMessage(sender, text1) {
-    if (text1.includes("hey") || text1.includes("hi") || text1.includes("hello") || text1.includes("summer") || text1.includes("rainy") || text1.includes("fall")|| text1.includes("winter")|| text1.includes("fall") || text1.includes("receipt")|| text1.includes("happy") || text1.includes("mio"))
+    if (text1.includes("hey") || text1.includes("hi") || text1.includes("hello") || text1.includes("summer") || text1.includes("rainy") || text1.includes("fall")|| text1.includes("winter")|| text1.includes("fall") || text1.includes("receipt")|| text1.includes("happy"))
     {
     let text= text1.toLowerCase()
     if (text.includes("summer")) 
@@ -135,10 +135,6 @@ function decideMessage(sender, text1) {
         sendText(sender, "Hey, I am just another bot. I can tell you about various seasons?. I like Fall.")
         sendButtonMessage(sender, "What is your favorite season?")
     }
-    else if(text.includes("mio"))
-    {
-        sendQuickReply(sender)
-    }
 }
 else{
     const sessionPath = sessionClient.sessionPath(process.env.GOOGLE_PROJECT_ID, sender);
@@ -163,22 +159,6 @@ else{
 }
 }
 
-function sendQuickReply(sender)
-{
-    let messagedata = 
-    {
-    "text": "Here is a quick reply!",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Fall",
-        "payload":"fall",
-        "image_url":"http://example.com/img/red.png"
-      },
-    ]
-    }
-    sendRequest(sender, messageData)
-}
 
 function sendText(sender, text) {
     let messageData = {text: text}
