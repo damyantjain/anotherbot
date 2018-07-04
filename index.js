@@ -74,7 +74,7 @@ app.post('/webhook/',function(req, res){
                     if (!name) {
                         name = 'test';
                     }
-                    const post  = [ [ [sender, body.first_name] ] ];
+                    const post  = [ [ [sender, name] ] ];
                     connection.query('INSERT INTO users (id, name) VALUES ?', post, function (error, results) {
                         if (error) throw error;
                         console.log("Number of records inserted: " + results.affectedRows);
