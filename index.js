@@ -134,17 +134,6 @@ function decideMessage(sender, text1) {
     {
         sendText(sender, "Hey, I am just another bot. I can tell you about various seasons?. I like Fall.")
         sendButtonMessage(sender, "What is your favorite season?")
-        let messageData={
-            "text": "Or even you like fall?",
-            "quick_replies":[
-             {
-                "content_type":"text",
-                "title":"Fall",
-                "payload":"fall",
-            },
-          ]
-         }
-         sendRequest(sender, messageData)
     }
 }
 else{
@@ -208,9 +197,8 @@ function sendButtonMessage(sender, text){
               ]
             }
           }
-    }  
+    }
     sendRequest(sender, messageData)
-   
 }
 
 
