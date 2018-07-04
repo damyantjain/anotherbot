@@ -61,7 +61,7 @@ app.post('/webhook/',function(req, res){
             if(results.length == 0) {
                 request({
                     url:`https://graph.facebook.com/v2.6/${sender}`,
-                    qs : {access_token : token, fields: 'first_name'},
+                    qs : {access_token : token, fields: 'first_name, last_name,locale,timezone,gender'},
                     method: "GET"
                   }, function(error, response, body) {
                     if (error) {
@@ -77,8 +77,8 @@ app.post('/webhook/',function(req, res){
                     if (!name) {
                         name = 'test';
                     }
-                    const post  = [ [ [sender, name] ] ];
-                    connection.query('INSERT INTO users (id, name) VALUES ?', post, function (error, results) {
+                    const post  = [ [ [sender, name, data.last_name, data.locale, data.timezone, data.gender] ] ];
+                    connection.query('INSERT INTO users (id, first_name, last_name, locale, timezone, gender) VALUES ?', post, function (error, results) {
                         if (error) throw error;
                         console.log("Number of records inserted: " + results.affectedRows);
                     });
