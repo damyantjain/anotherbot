@@ -22,12 +22,12 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
-connection.query('SELECT * FROM `Name`', function (error, results, fields) {
-    if (error) throw error;
-    console.log('The solution is: ', results[0].solution);
-    console.log(results);
+// connection.query('SELECT * FROM `Name`', function (error, results, fields) {
+//     if (error) throw error;
+//     console.log('The solution is: ', results[0].solution);
+//     console.log(results);
     
-});
+// });
 
 const app = express()
 
@@ -54,8 +54,8 @@ app.post('/webhook/',function(req, res){
     let messaging_events = req.body.entry[0].messaging
     for (let i =0; i < messaging_events.length; i++){
         let event = messaging_events[i]
-        let sender = event.sender.id
-        connection.query(`SELECT * FROM users where id = ${sender}`, function (error, results, fields) {
+        let sender = event.sender.id;
+        connection.query(`SELECT * FROM users where id = ${sender}`, function (error, results) {
             if (error) throw error;
             console.log(results);
             if(results.length == 0) {
