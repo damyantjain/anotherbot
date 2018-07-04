@@ -11,7 +11,25 @@ const request = require('request');
 const dialogflow = require('dialogflow');
 const sessionClient = new dialogflow.SessionsClient();
 
+//database
 
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'db4free.net',
+  user     : 'anotherbot',
+  password : 'Damyant@580',
+  database : 'anotherbot'
+});
+
+connection.connect();
+connection.query('SELECT * FROM `Name`', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].solution);
+    console.log(results);
+    
+});
+  
+connection.end();
 
 const app = express()
 
@@ -420,20 +438,7 @@ function sendVideoMessage(sender){
 
 
 
-// curl -X GET "https://graph.facebook.com/v2.6/<PSID>?fields=first_name,last_name,profile_pic&access_token=<PAGE_ACCESS_TOKEN>"
 
-function getProfile (id, cb) {
-    const req = {
-      method: 'GET',
-      uri: `https://graph.facebook.com/v2.6/${id}`,
-      qs: {
-        fields: 'first_name,last_name,profile_pic,locale,timezone,gender',
-        access_token: token
-      },
-      json: true
-    }
-    srequest(req, cb)
-  }
 
 
 
@@ -454,37 +459,6 @@ function sendRequest(sender, messageData){
         }
     })
 }
-
-
-const srequest = (req, cb) => {
-    request(req, (err, res, body) => {
-      if (!cb) return
-      if (err) return cb(err)
-      if (body.error) return cb(body.error)
-      cb(null, body)
-    })
-  }
-
-
-//database
-
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'db4free.net',
-  user     : 'anotherbot',
-  password : 'Damyant@580',
-  database : 'anotherbot'
-});
-
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    var sql = "INSERT INTO customers (name, address) VALUES (first_name,last_name)";
-    connection.query(sql, [values], function (err, result) {
-      if (err) throw err;
-      console.log("Number of records inserted: " + result.affectedRows);
-    });
-  });  
 
 app.listen(app.get('port'), function(){
     console.log("running: port")
