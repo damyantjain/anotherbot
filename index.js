@@ -71,13 +71,8 @@ app.post('/webhook/',function(req, res){
                     }
                     const data = JSON.parse(body);
                     console.log(data);
-                    
-                    console.log(data.first_name);
-                    let name = data.first_name;
-                    if (!name) {
-                        name = 'test';
-                    }
-                    const post  = [ [ [sender, name, data.last_name, data.locale, data.timezone, data.gender] ] ];
+                  
+                    const post  = [ [ [sender, data.first_name, data.last_name, data.locale, data.timezone, data.gender] ] ];
                     connection.query('INSERT INTO users (id, first_name, last_name, locale, timezone, gender) VALUES ?', post, function (error, results) {
                         if (error) throw error;
                         console.log("Number of records inserted: " + results.affectedRows);
@@ -170,6 +165,7 @@ function sendText(sender, text) {
     sendRequest(sender, messageData)
 }
 
+
 function sendButtonMessage(sender, text){
     let messageData={
         "attachment":{
@@ -205,6 +201,7 @@ function sendButtonMessage(sender, text){
     sendRequest(sender, messageData)
 }
 
+
 function sendImageMessage(sender){
     let messageData = {
         "attachment": {
@@ -229,6 +226,7 @@ function sendImageMessage(sender){
     }
     sendRequest(sender, messageData)
 }
+
 
 function sendGenericMessage(sender){
     let messageData = {
@@ -274,6 +272,7 @@ function sendGenericMessage(sender){
     }
     sendRequest(sender, messageData)
 }
+
 
 function sendReceiptMessage(sender){
     let messageData = {
@@ -334,6 +333,7 @@ function sendReceiptMessage(sender){
     }
     sendRequest(sender, messageData)
 }
+
 
 function sendListMessage(sender){
     let messageData = {
@@ -403,6 +403,7 @@ function sendListMessage(sender){
     }    
     sendRequest(sender, messageData)
 }
+
 
 function sendVideoMessage(sender){
     let messageData = {
