@@ -71,8 +71,10 @@ app.post('/webhook/',function(req, res){
                     }
                     const data = JSON.parse(body);
                     console.log(data);
+                    
+                    console.log(data.first_name);
                   
-                    const post  = [ [ [sender, data.first_name, data.last_name, data.locale, data.timezone, data.gender] ] ];
+                    const post  = [ [ [sender, name, data.last_name, data.locale, data.timezone, data.gender] ] ];
                     connection.query('INSERT INTO users (id, first_name, last_name, locale, timezone, gender) VALUES ?', post, function (error, results) {
                         if (error) throw error;
                         console.log("Number of records inserted: " + results.affectedRows);
