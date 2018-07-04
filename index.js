@@ -141,7 +141,6 @@ function decideMessage(sender, text1) {
                 "content_type":"text",
                 "title":"Fall",
                 "payload":"fall",
-                "image_url":"http://example.com/img/red.png"
             },
           ]
          }
