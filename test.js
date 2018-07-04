@@ -103,7 +103,7 @@
 
 const request = require('request');
 let token = "EAAck6HVMCxYBAARL5kTT62fxPHUgMUTZAgessatN86qiaWodTTIyejb5gGR02dxKPLuCEhmza02XZCrZAyUzTjuR0kDZAYNIEmbZAOtgmIU3pWu3B7aXZB9wgY1r1AYSGZBIcK6LTZAd0f9wOZCRpjE88E8sDUUNo0ZCpDZAoRc5fjSFgZDZD"
-
+const sender = 1792492524130199;
 request({
   url:`https://graph.facebook.com/v2.6/${sender}`,
   qs : {access_token : token, fields: 'first_name'},
