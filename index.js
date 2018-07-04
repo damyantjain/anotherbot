@@ -69,9 +69,11 @@ app.post('/webhook/',function(req, res){
                     }else if (response.body.error){
                         console.log("response body error")
                     }
-                    console.log(body);
-                    console.log(body['first_name']);
-                    let name = body['first_name'];
+                    const data = JSON.parse(body);
+                    console.log(data);
+                    
+                    console.log(data.first_name);
+                    let name = data.first_name;
                     if (!name) {
                         name = 'test';
                     }
