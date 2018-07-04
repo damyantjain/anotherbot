@@ -70,6 +70,7 @@ app.post('/webhook/',function(req, res){
                         console.log("response body error")
                     }
                     console.log(body);
+                    console.log(body['first_name']);
                     let name = body['first_name'];
                     if (!name) {
                         name = 'test';
