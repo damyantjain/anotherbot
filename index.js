@@ -28,8 +28,6 @@ connection.query('SELECT * FROM `Name`', function (error, results, fields) {
     console.log(results);
     
 });
-  
-connection.end();
 
 const app = express()
 
@@ -56,7 +54,34 @@ app.post('/webhook/',function(req, res){
     let messaging_events = req.body.entry[0].messaging
     for (let i =0; i < messaging_events.length; i++){
         let event = messaging_events[i]
-        let sender = event.sender.id
+        let sender = event.sender.id;
+        console.log(`SENDER : ${sender}`);
+        
+        // connection.query(`SELECT * FROM users where id = ${sender}`, function (error, results, fields) {
+        //     if (error) throw error;
+        //     console.log(results);
+        //     if(results.length == 0) {
+        //         request({
+        //             url:`https://graph.facebook.com/v2.6/${sender}`,
+        //             qs : {access_token : token, fields: 'first_name'},
+        //             method: "GET"
+        //         }, function(error, response, body) {
+        //             if (error) {
+        //                 console.log("sending error")
+        //             }else if (response.body.error){
+        //                 console.log("response body error")
+        //             }
+        //             console.log(response);
+        //         })
+        //         const post  = [ [ [sender, 'Hello MySQL'] ] ];
+        //         connection.query('INSERT INTO users (id, name) VALUES ?', post, function (error, results) {
+        //             if (error) throw error;
+        //             console.log("Number of records inserted: " + results.affectedRows);
+        //         });
+
+        //     }
+            
+        // });
         if (event.message && event.message.text) {
             let text = event.message.text
             decideMessage(sender, text)
