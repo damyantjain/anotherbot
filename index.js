@@ -11,7 +11,7 @@ const request = require('request');
 const dialogflow = require('dialogflow');
 const sessionClient = new dialogflow.SessionsClient();
 
-//database
+//database  
 
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
@@ -134,6 +134,7 @@ function decideMessage(sender, text1) {
     {
         sendText(sender, "Hey, I am just another bot. I can tell you about various seasons?. I like Fall.")
         sendButtonMessage(sender, "What is your favorite season?")
+        sendQuickReplies(sender)
     }
 }
 else{
@@ -159,6 +160,24 @@ else{
 }
 }
 
+function sendQuickReplies(sender){
+    let messageData = {
+        "text": "Or maybe Fall!",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Fall",
+            "payload":"winter",
+          },
+          {
+            "content_type":"text",
+            "title":"Autumn",
+            "payload":"winter",
+          }
+        ]
+    } 
+    sendRequest(sender, messageData)
+}
 
 function sendText(sender, text) {
     let messageData = {text: text}
@@ -464,9 +483,7 @@ function sendVideoMessage(sender){
     }
     sendRequest(sender, messageData)
 }
-
-
-
+//
 
 
 
