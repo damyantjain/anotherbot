@@ -165,15 +165,13 @@ function sendQuickReplies(sender){
         "text": "Or maybe Fall!",
         "quick_replies":[
           {
-            "content_type":"text",
-            "title":"Fall",
-            "payload":"winter",
-          },
-          {
-            "content_type":"text",
-            "title":"Autumn",
-            "payload":"winter",
+            "content_type":"location",
           }
+        //   {
+        //     "content_type":"text",
+        //     "title":"Autumn",
+        //     "payload":"winter",
+        //   }
         ]
     } 
     sendRequest(sender, messageData)
