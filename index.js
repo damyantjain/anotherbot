@@ -169,8 +169,8 @@ function sendQuickReplies(sender){
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Fall",
-            "payload":"fall",
+            "title":"Do you want to fall",
+            "payload":"winter",
           },
         ]
     } 
@@ -481,10 +481,6 @@ function sendVideoMessage(sender){
     }
     sendRequest(sender, messageData)
 }
-//
-
-
-
 
 
 function sendRequest(sender, messageData){
