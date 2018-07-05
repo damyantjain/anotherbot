@@ -132,8 +132,8 @@ function decideMessage(sender, text1) {
     }
     else if(text.includes("hey") || text.includes("hi") || text.includes("hello"))
     {
-        sendText(sender, "Hey, I am just another bot. I can tell you about various seasons?. I like Fall.")
-        sendButtonMessage(sender, "What is your favorite season?")
+        // sendText(sender, "Hey, I am just another bot. I can tell you about various seasons?. I like Fall.")
+        // sendButtonMessage(sender, "What is your favorite season?")
         sendQuickReplies(sender)
     }
 }
@@ -165,13 +165,15 @@ function sendQuickReplies(sender){
         "text": "Or maybe Fall!",
         "quick_replies":[
           {
-            "content_type":"location",
+            "content_type":"text",
+            "title":"fall",
+            "payload":"winter",
+          },
+          {
+            "content_type":"text",
+            "title":"winter",
+            "payload":"winter",
           }
-        //   {
-        //     "content_type":"text",
-        //     "title":"Autumn",
-        //     "payload":"winter",
-        //   }
         ]
     } 
     sendRequest(sender, messageData)
