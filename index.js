@@ -170,7 +170,7 @@ function sendQuickReplies(sender){
           {
             "content_type":"text",
             "title":"Do you want to fall",
-            "payload":"winter",
+            "payload":"fall",
           },
         ]
     } 
