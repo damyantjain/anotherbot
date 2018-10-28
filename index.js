@@ -40,7 +40,7 @@ app.get('/', function(req, res){
     res.send("hiiiiiiii")
 })
 
-let token = "EAAck6HVMCxYBAARL5kTT62fxPHUgMUTZAgessatN86qiaWodTTIyejb5gGR02dxKPLuCEhmza02XZCrZAyUzTjuR0kDZAYNIEmbZAOtgmIU3pWu3B7aXZB9wgY1r1AYSGZBIcK6LTZAd0f9wOZCRpjE88E8sDUUNo0ZCpDZAoRc5fjSFgZDZD"
+let token = "EAAck6HV.......................FgZDZD"
 
 
 app.get('/webhook/', function(req, res){
