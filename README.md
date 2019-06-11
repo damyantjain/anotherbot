@@ -1,6 +1,6 @@
 ANOTHER BOT
 
-This bot can handle small talk and cak keep up a onversation to order a pizza.
+This bot can handle small talk and can keep up a conversation to order a pizza.
 Multiple facebook messenger templates have been used and tried for learning purpose.
 This chatbot is hosted on Heroku.
 It uses Dialogflow conversation to manage chats.
