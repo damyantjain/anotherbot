@@ -16,9 +16,9 @@ const sessionClient = new dialogflow.SessionsClient();
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'db4free.net',
-  user     : 'anotherbot',
-  password : 'Damyant@580',
-  database : 'anotherbot'
+  user     : '',
+  password : '',
+  database : ''
 });
 
 connection.connect();
